@@ -1,4 +1,4 @@
-# AZK_Bluetooth
+# ZMKB 8 Code Bluetooth Macropad
 Bluetooth Macropad -- Keymaps *Configurable over Wifi AP* \****Coming Soon\****
 
 <Br>
