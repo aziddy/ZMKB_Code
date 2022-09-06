@@ -6,13 +6,13 @@
 BleKeyboard bleKeyboard("BLE-K YYZ286", "Alex-Zidros");
 
 // constants won't change. They're used here to set pin numbers:
-const int buttonPin = 25;     // the number of the pushbutton pin
 
 int buttonState = 0;  
 
-
 #define DEBOUNCE_DELAY 10
 #define BUTTON_COUNT 8
+
+// ZMKB 8 Code Macropad's Button Pinouts from top left to to bottom right
 int buttonPins[] = {17, 16, 2, 15, 25, 26, 14, 12};
 // buttonReadings
 int buttonReadings[] = {0, 0, 0, 0, 0, 0, 0, 0};
@@ -28,12 +28,13 @@ bool lastReading[] = {0, 0, 0, 0, 0, 0, 0, 0};
 
 
 void setup() {
-  Serial.begin(115200);
-  Serial.println("Starting BLE!");
+  //Serial.begin(115200);
+  //Serial.println("Starting BLE!");
   // initialize the pushbutton pin as an input:
   for(int x = 0; x < BUTTON_COUNT; x++){
     pinMode(buttonPins[x], INPUT_PULLUP);
   }
+  
   bleKeyboard.begin();
 }
 
@@ -91,7 +92,7 @@ void pressChars(int button){
     delay(20);
     bleKeyboard.releaseAll();
   } else if (button == 6){
-        bleKeyboard.press(KEY_LEFT_GUI);
+    bleKeyboard.press(KEY_LEFT_GUI);
     bleKeyboard.press('4');
     delay(20);
     bleKeyboard.releaseAll();
